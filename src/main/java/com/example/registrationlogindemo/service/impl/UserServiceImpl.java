@@ -7,10 +7,6 @@ import com.example.registrationlogindemo.repository.RoleRepository;
 import com.example.registrationlogindemo.repository.UserRepository;
 import com.example.registrationlogindemo.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +22,15 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
+
+//    public Boolean authenticate(String email, String password) {
+//        Optional<User> userOptional = userRepository.findByEmail(email);
+//        if (userOptional.isEmpty()) {
+//            return false;
+//        }
+//        User user = userOptional.get();
+//        return passwordEncoder.matches(password, user.getPassword());
+//    }
 
     @Override
     public void saveUser(UserDto userDto) {
@@ -49,6 +54,7 @@ public class UserServiceImpl implements UserService {
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
+
 
     @Override
     public List<UserDto> findAllUsers() {
