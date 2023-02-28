@@ -86,10 +86,10 @@ public class AuthController {
         return "redirect:/login";
     }
 
-    @GetMapping("/users")
-    public String listRegisteredUsers(Model model){
-        List<UserDto> users = userService.findAllUsers();
-        model.addAttribute("users", users);
-        return "users";
-    }
+//    @GetMapping("/users")
+//    public String listRegisteredUsers(Model model){
+//        List<UserDto> users = userService.findAllUsers();
+//        model.addAttribute("users", users);
+//        return "users";
+//    }
 }
